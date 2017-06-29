@@ -9,6 +9,7 @@ public class Killable : MonoBehaviour
 
     #region:health
     public float CurrentHealth { get; protected set; }
+    public float MaxHealth { get; set; }
     #endregion
 
     #region:healing
@@ -45,6 +46,7 @@ public class Killable : MonoBehaviour
     void Start()
     {
         //Initialise the health
+        ResetMaxHealth();
         ResetCurrentHealth();
         //Initialise the healbonus
         //ResetCurrentHealBonus();
@@ -69,9 +71,13 @@ public class Killable : MonoBehaviour
 
     #region:basicFunctionalities
     //Reset the health
+    public void ResetMaxHealth()
+    {
+        MaxHealth = basicHealthPresset.BasicHealth;
+    }
     public void ResetCurrentHealth()
     {
-        CurrentHealth = basicHealthPresset.BasicHealth;
+        CurrentHealth = MaxHealth;
     }
     //Reset the healing bonus
     //public void ResetCurrentHealBonus()
